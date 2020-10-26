@@ -17,9 +17,9 @@
 # limitations under the License.
 
 """
-³ÌĞò¹¦ÄÜ£º  ÎÄ±¾·ÖÎöÓëĞ´×÷
-          a: Éú³ÉÈÎÒâ³¤¶ÈµÄ£¨Á´³¤×Ô¶¨Òå£º£©
-          b: Âí¶û¿É·òÁ´×é³ÉµÄ¾ä×Ó
+ç¨‹åºåŠŸèƒ½ï¼š  æ–‡æœ¬åˆ†æä¸å†™ä½œ
+          a: ç”Ÿæˆä»»æ„é•¿åº¦çš„ï¼ˆé“¾é•¿è‡ªå®šä¹‰ï¼šï¼‰
+          b: é©¬å°”å¯å¤«é“¾ç»„æˆçš„å¥å­
 """
 import sys
 from urllib.request import urlopen
@@ -40,97 +40,97 @@ class sentence_producer(base):
         self.dict = []
 
     def wordListSum(self, wordList):
-        """´´½¨Ò»¸öµ¥´ÊÁĞ±í×ÜÊı"""
-        # ¶¨ÒåÒ»¸ö±äÁ¿sum²¢³õÊ¼»¯
+        """åˆ›å»ºä¸€ä¸ªå•è¯åˆ—è¡¨æ€»æ•°"""
+        # å®šä¹‰ä¸€ä¸ªå˜é‡sumå¹¶åˆå§‹åŒ–
         sum = 0
-        # ¶¨Òåword£¬value Á½¸ö±äÁ¿½øĞĞÓĞĞò±éÀú
-        # items()º¯ÊıÒÔÁĞ±í·µ»Ø¿É±éÀúµÄ(¼ü, Öµ) Ôª×éÊı×é,»»ÑÔÖ®£º×ÖµäÖĞËùÓĞµÄÏîÒÔÁĞ±íµÄĞÎÊ½·µ»Ø£¬ÁĞ±íÖĞµÄÃ¿Ò»Ïî¶¼ÊÇÒÔ¼üÖµ¶ÔµÄĞÎÊ½±íÏÖµÄ
-        # ½øĞĞ±éÀú¼ü-Öµ
+        # å®šä¹‰wordï¼Œvalue ä¸¤ä¸ªå˜é‡è¿›è¡Œæœ‰åºéå†
+        # items()å‡½æ•°ä»¥åˆ—è¡¨è¿”å›å¯éå†çš„(é”®, å€¼) å…ƒç»„æ•°ç»„,æ¢è¨€ä¹‹ï¼šå­—å…¸ä¸­æ‰€æœ‰çš„é¡¹ä»¥åˆ—è¡¨çš„å½¢å¼è¿”å›ï¼Œåˆ—è¡¨ä¸­çš„æ¯ä¸€é¡¹éƒ½æ˜¯ä»¥é”®å€¼å¯¹çš„å½¢å¼è¡¨ç°çš„
+        # è¿›è¡Œéå†é”®-å€¼
         for word, value in wordList.items():
-            # ÕâÀï¿ªÊ¼×Ô¼Ó
+            # è¿™é‡Œå¼€å§‹è‡ªåŠ 
             sum += value
-        # ·µ»ØÖµµÄ×ÜÊı
+        # è¿”å›å€¼çš„æ€»æ•°
         return sum
 
     # 2
-    def retrieveRandomWordself, (wordList):
-        """·µ»ØËæ»úµ¥´Ê"""
-        # wordList´ú±íµÄÊÇ³öÏÖÔÚÉÏÒ»¸ö´ÊÓïºóµÄ´ÊÓïÁĞ±í¼°ÆäÆµÂÊ×é³ÉµÄ×Öµä£¬È»ºó¸ù¾İÍ³¼ÆµÄ¸ÅÂÊËæ»úÉú³ÉÒ»¸ö´Ê¡£
-        # randint()ÓÃÓÚÉú³ÉÒ»¸öÖ¸¶¨·¶Î§ÄÚµÄÕûÊı
-        # ±éÀúwordListSun()º¯Êı£¨±éÀú·¶Î§£º´Ó1-sum£©
+    def retrieveRandomWord(self, wordList):
+        """è¿”å›éšæœºå•è¯"""
+        # wordListä»£è¡¨çš„æ˜¯å‡ºç°åœ¨ä¸Šä¸€ä¸ªè¯è¯­åçš„è¯è¯­åˆ—è¡¨åŠå…¶é¢‘ç‡ç»„æˆçš„å­—å…¸ï¼Œç„¶åæ ¹æ®ç»Ÿè®¡çš„æ¦‚ç‡éšæœºç”Ÿæˆä¸€ä¸ªè¯ã€‚
+        # randint()ç”¨äºç”Ÿæˆä¸€ä¸ªæŒ‡å®šèŒƒå›´å†…çš„æ•´æ•°
+        # éå†wordListSun()å‡½æ•°ï¼ˆéå†èŒƒå›´ï¼šä»1-sumï¼‰
         randIndex = randint(1,wordListSum(wordList))
 
-        # ±éÀúretrieveRandomWord(wordList)
-        # ÆäÊµ¾ÍÊÇ±éÀú×Öµä
+        # éå†retrieveRandomWord(wordList)
+        # å…¶å®å°±æ˜¯éå†å­—å…¸
         for word, value in wordList.items():
-            # Ê¹ÓÃ±éÀúwordListSum()º¯ÊıµÄ½á¹û½øĞĞµİ¼õ
+            # ä½¿ç”¨éå†wordListSum()å‡½æ•°çš„ç»“æœè¿›è¡Œé€’å‡
             randIndex -= value
             if randIndex <=0:
                 return word
 
     # 3
     def buildWordDict(self, text):
-        """buildWordDict(text)º¯Êı½ÓÊÕÎÄ±¾ÄÚÈİ"""
-        # ÌŞ³ı»»ĞĞ·ûºÍÒıºÅ
-        # ÕâÀïÒ²¿ÉÒÔÓÃre.sub(pattern, repl, string, count=0, flags=0)
+        """buildWordDict(text)å‡½æ•°æ¥æ”¶æ–‡æœ¬å†…å®¹"""
+        # å‰”é™¤æ¢è¡Œç¬¦å’Œå¼•å·
+        # è¿™é‡Œä¹Ÿå¯ä»¥ç”¨re.sub(pattern, repl, string, count=0, flags=0)
         # text = text.sub('(\n|\r|\t)+', " ", text)
         # text = text.sub('\"', "", text)
         text = text.replace("\n", " ")
         text = text.replace("\"", "")
 
-        # ±£Ö¤Ã¿¸ö±êµã·ûºÅ¶¼ºÍÇ°ÃæµÄµ¥´ÊÔÚÒ»Æğ ×÷ÓÃ£ºÕâÑù²»»á±»ÌŞ³ı£¬±£ÁôÔÚÂí¶û¿É·òÁ´ÖĞ
+        # ä¿è¯æ¯ä¸ªæ ‡ç‚¹ç¬¦å·éƒ½å’Œå‰é¢çš„å•è¯åœ¨ä¸€èµ· ä½œç”¨ï¼šè¿™æ ·ä¸ä¼šè¢«å‰”é™¤ï¼Œä¿ç•™åœ¨é©¬å°”å¯å¤«é“¾ä¸­
         punctuation = [',', '.', ';', ':']
 
         for symbol in punctuation:
-            # ¶¨ÒåÒ»¸ö±íÊ¾·ûºÅµÄsymbol±äÁ¿À´±éÀúÁĞ±ípunctuation
+            # å®šä¹‰ä¸€ä¸ªè¡¨ç¤ºç¬¦å·çš„symbolå˜é‡æ¥éå†åˆ—è¡¨punctuation
             text = text.replace(symbol, " " + symbol + " ")
-        # split()º¯ÊıÖ¸µÄÊÇÍ¨¹ıÖ¸¶¨·Ö¸ô·û¶Ô×Ö·û´®½øĞĞÇĞÆ¬
-        # ÕâÀïÖ¸¶¨µÄÊÇÍ¨¹ı" "À´½øĞĞÇĞ·Ö
+        # split()å‡½æ•°æŒ‡çš„æ˜¯é€šè¿‡æŒ‡å®šåˆ†éš”ç¬¦å¯¹å­—ç¬¦ä¸²è¿›è¡Œåˆ‡ç‰‡
+        # è¿™é‡ŒæŒ‡å®šçš„æ˜¯é€šè¿‡" "æ¥è¿›è¡Œåˆ‡åˆ†
         words = text.split(" ")
-        # ¹ıÂË¿Õµ¥´ÊÁĞ±í
+        # è¿‡æ»¤ç©ºå•è¯åˆ—è¡¨
         words = [word for word in words if word!=""]
-        print("²âÊÔwords:",words)
+        print("æµ‹è¯•words:",words)
 
-        # ´´½¨Ò»¸ö¿Õ×Öµä
+        # åˆ›å»ºä¸€ä¸ªç©ºå­—å…¸
         wordDict = {}
         for i in range(1, len(words)):
-            # ´´½¨Ò»¸ö±äÁ¿i,×÷ÓÃ£º±éÀú¹ıÂËµÄµ¥´Ê(´Ó1-len(words))
-            # Èç¹ûwordDict×ÖµäÖĞ²»´æÔÚwords[i-1]
+            # åˆ›å»ºä¸€ä¸ªå˜é‡i,ä½œç”¨ï¼šéå†è¿‡æ»¤çš„å•è¯(ä»1-len(words))
+            # å¦‚æœwordDictå­—å…¸ä¸­ä¸å­˜åœ¨words[i-1]
             if words[i-1] not in wordDict:
-                # Îª²»´æÔÚµÄµ¥´Ê(words[i - 1])ĞÂ½¨(Ìí¼Ó)Ò»¸ö×Öµä
+                # ä¸ºä¸å­˜åœ¨çš„å•è¯(words[i - 1])æ–°å»º(æ·»åŠ )ä¸€ä¸ªå­—å…¸
                 wordDict[words[i - 1]] = {}
-                print("\n²âÊÔ1 wordDict[words[i - 1]] = {} : ",wordDict)
+                print("\næµ‹è¯•1 wordDict[words[i - 1]] = {} : ",wordDict)
                 # print(wordDict)
-            # Èç¹ûwords[i](µÚi¸öµ¥´Ê)²»´æÔÚwordDict[words[i - 1]](Îª²»´æÔÚµ¥´ÊĞÂ½¨µÄ×Öµä-½«²»´æÔÚµÄµ¥´ÊÌí¼Óµ½ĞÂ½¨µÄ×ÖµäÖĞ)
+            # å¦‚æœwords[i](ç¬¬iä¸ªå•è¯)ä¸å­˜åœ¨wordDict[words[i - 1]](ä¸ºä¸å­˜åœ¨å•è¯æ–°å»ºçš„å­—å…¸-å°†ä¸å­˜åœ¨çš„å•è¯æ·»åŠ åˆ°æ–°å»ºçš„å­—å…¸ä¸­)
             if words[i] not in wordDict[words[i - 1]]:
-                # ¸ø wordDict[words[i - 1]] = {} µÄÖµ£¨ÖµÊÇÒ»¸ö×Öµä£©Ìí¼ÓÊı¾İ
+                # ç»™ wordDict[words[i - 1]] = {} çš„å€¼ï¼ˆå€¼æ˜¯ä¸€ä¸ªå­—å…¸ï¼‰æ·»åŠ æ•°æ®
                 wordDict[words[i - 1]][words[i]] = 0
-                print("\n²âÊÔ2 wordDict",wordDict)
-            # wordDict[a][b] += 1 --------->°ÑÕâ¸ö¶şÎ¬¾ØÕóµÚaĞĞµÚbÁĞÊı×Ö+1
-            # Î»ÖÃ+1
+                print("\næµ‹è¯•2 wordDict",wordDict)
+            # wordDict[a][b] += 1 --------->æŠŠè¿™ä¸ªäºŒç»´çŸ©é˜µç¬¬aè¡Œç¬¬båˆ—æ•°å­—+1
+            # ä½ç½®+1
             # print(words)
             wordDict[words[i - 1]][words[i]] = wordDict[words[i - 1]][words[i]] + 1
-            print("²âÊÔ3 wordDict:", wordDict)
+            print("æµ‹è¯•3 wordDict:", wordDict)
 
-        # ·µ»Ø×ÖµäµÄÖµ
+        # è¿”å›å­—å…¸çš„å€¼
         return wordDict
 
 if __name__ == "__main__":
     f = open(r"wenben.txt","r")
-    # °´ĞĞ¶ÁÈ¡
+    # æŒ‰è¡Œè¯»å–
     text = f.readline()
     # f.close()
     # text = open("wen.txt",encoding='utf-8')
     # text = str(urlopen("http://pythonscraping.com/files/inaugurationSpeech.txt").read(), 'utf-8')
-    # ´´½¨ÊµÀı--buildWordDict(text)º¯Êı½ÓÊÕÎÄ±¾ÄÚÈİ
+    # åˆ›å»ºå®ä¾‹--buildWordDict(text)å‡½æ•°æ¥æ”¶æ–‡æœ¬å†…å®¹
     wordDict = buildWordDict(text)
-    # Éú³ÉÁ´³¤Îª()µÄÂí¶û¿É·òÁ´
+    # ç”Ÿæˆé“¾é•¿ä¸º()çš„é©¬å°”å¯å¤«é“¾
     length = 10
     chain = ""
     currentWord = "B"
-    # ±éÀúÂí¶û¿Æ·òÁ´
+    # éå†é©¬å°”ç§‘å¤«é“¾
     for i in range(0,length):
         chain += currentWord + " "
-        # ¸ù¾İcurrentWord-->Éú³ÉwordDict[currentWord]-->Ê¹ÓÃretrieveRandomWord()º¯ÊıÉú³ÉcurrentWord
+        # æ ¹æ®currentWord-->ç”ŸæˆwordDict[currentWord]-->ä½¿ç”¨retrieveRandomWord()å‡½æ•°ç”ŸæˆcurrentWord
         currentWord = retrieveRandomWord(wordDict[currentWord])
     print(chain)
